@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenida | Student Management</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<main class="page">
+  <section class="card center-card">
+    <h1>Bienvenido a Student Management</h1>
+    <p class="muted">
+      Administra estudiantes de forma rapida: visualiza, agrega, edita y elimina registros.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" th:href="@{/students}">Ir a la lista de estudiantes</a>
+    </div>
+
+    <hr class="divider">
+
+    <h2>Editar estudiante por ID</h2>
+    <form class="inline-form" th:action="@{/students/edit}" method="get">
+      <label for="studentId">ID</label>
+      <input id="studentId" name="id" type="number" min="1" required>
+      <button class="btn" type="submit">Editar</button>
+    </form>
+  </section>
+</main>
+</body>
+</html>
