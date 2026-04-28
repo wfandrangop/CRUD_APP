@@ -1,0 +1,7 @@
+dev\studentmanagement\studentmanagement\controllers\StudentViewController.class
+dev\studentmanagement\studentmanagement\entities\Student.class
+dev\studentmanagement\studentmanagement\repositories\StudentRepository.class
+dev\studentmanagement\studentmanagement\services\StudentService.class
+dev\studentmanagement\studentmanagement\controllers\StudentController.class
+dev\studentmanagement\studentmanagement\StudentManagementApplication.class
+dev\studentmanagement\studentmanagement\ServletInitializer.class
