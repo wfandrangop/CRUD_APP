@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de estudiantes</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<main class="page">
+  <section class="card">
+    <header class="topbar">
+      <div>
+        <h1>Lista de estudiantes</h1>
+        <p class="muted">Gestiona los registros disponibles en la base de datos.</p>
+      </div>
+      <div class="actions">
+        <a class="btn" th:href="@{/}">Inicio</a>
+        <a class="btn btn-primary" th:href="@{/students/new}">Agregar estudiante</a>
+      </div>
+    </header>
+
+    <p class="alert alert-success" th:if="${message}" th:text="${message}"></p>
+    <p class="alert alert-error" th:if="${error}" th:text="${error}"></p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Edad</th>
+          <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${#lists.isEmpty(students)}">
+          <td colspan="5" class="empty-state">No hay estudiantes registrados.</td>
+        </tr>
+        <tr th:each="student : ${students}">
+          <td th:text="${student.id}"></td>
+          <td th:text="${student.name}"></td>
+          <td th:text="${student.lastName}"></td>
+          <td th:text="${student.age}"></td>
+          <td>
+            <div class="actions">
+              <form th:action="@{|/students/${student.id}/edit|}" method="get">
+                <button class="btn" type="submit">Editar</button>
+              </form>
+              <form th:action="@{|/students/${student.id}/delete|}" method="post">
+                <button class="btn btn-danger" type="submit">Borrar</button>
+              </form>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+</body>
+</html>
